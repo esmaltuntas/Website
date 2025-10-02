@@ -1,0 +1,268 @@
+@charset "utf-8";
+
+/* Genel Ayarlar */
+html {
+  scroll-behavior: smooth; /* Sayfa içi bağlantılarda yumuşak kaydırma sağlar */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Times New Roman, sans-serif;
+  background-color: #0a0a23;
+  color: white;
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-top: 75px;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;  /* Sayfa kaydırıldığında sabit kalır */
+  top: 0;
+  width: 100%;
+  height: 75px;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+.logo img {
+  height: 45px;
+}
+
+.site-name {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
+/* Menü */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  height: 75px;
+  transition: color 0.3s;
+}
+
+.menu li a:hover {
+  color: #f0a500;
+}
+
+/* İçerik ve Aside Konteyneri */
+.content-container {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  padding: 40px 20px;
+  flex-wrap: wrap; /* Taşma durumunda alt satıra geçirir */
+}
+
+/* Hero Alanı */
+.hero-section {
+  flex: 1 1 60%;
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+}
+/* Arka plana video*/
+video.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.fade-in-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.fade-in-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.fade-in-content p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Zoom In Animasyonu */
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: zoomIn 1.2s ease-out forwards;
+}
+
+.fade-in.delay {
+  animation-delay: 0.8s;
+}
+
+/* aside alanı */
+.sidebar {
+  flex: 1 1 300px;
+  background-color: #1c1c3c;
+  padding: 20px;
+  border-left: 4px solid #fff;
+  min-height: 500px;
+  color: white;
+}
+
+.sidebar h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+/* Footer Alanı */
+.footer-container {
+  background-color: #111133;
+  color: white;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+  box-sizing: border-box;
+}
+
+.footer-section {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+.footer-section h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.footer-section p {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1024px) {
+  .fade-in-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .fade-in-content p {
+    font-size: 0.95rem;
+  }
+
+  .menu {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 10px 20px;
+  }
+
+  .site-name {
+    margin-bottom: 10px;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .menu li a {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .content-container {
+    flex-direction: column;
+  }
+
+  .hero-section,
+  .sidebar {
+    flex: 1 1 100%;
+  }
+
+  .fade-in-content h1 {
+    font-size: 2rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .fade-in-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .fade-in-content p {
+    font-size: 0.85rem;
+  }
+
+  .logo img {
+    height: 35px;
+  }
+
+  .site-name {
+    font-size: 1rem;
+  }
+}
